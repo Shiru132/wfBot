@@ -1,7 +1,7 @@
 // megaFieldHandlers.js
 const { sendFarmRequest } = require('./farmRequest');
-const CONFIG = require('./config.json');
-const { randomDelay } = require('./utils');
+const CONFIG               = require('./config.json');
+const { randomDelay }      = require('./utils');
 
 async function handleMegaFieldTour(page, rid) {
   const pos       = CONFIG.megaFieldTour.position;
@@ -10,12 +10,14 @@ async function handleMegaFieldTour(page, rid) {
   for (const farm of CONFIG.farms) {
     console.log(`🚜 Sadzenie Mega-field dla farmy ${farm}`);
     await sendFarmRequest(
-      page, rid,
+      page,
+      rid,
       'megafield_tour',
-      farm, pos,
+      farm,
+      pos,
       { set: setString, vid: CONFIG.megaFieldTour.vid }
     );
-    
+    // tutaj czekamy
     await randomDelay(
       CONFIG.delays.farmPauseMin,
       CONFIG.delays.farmPauseMax
@@ -30,9 +32,11 @@ async function handleMegaFieldHarvest(page, rid) {
   for (const farm of CONFIG.farms) {
     console.log(`🌾 Zbiór Mega-field dla farmy ${farm}`);
     await sendFarmRequest(
-      page, rid,
+      page,
+      rid,
       'megafield_harvest',
-      farm, pos,
+      farm,
+      pos,
       { set: setString, vid: CONFIG.megaFieldTour.vid }
     );
     await randomDelay(
@@ -48,17 +52,25 @@ async function handleMegaFieldAutoplant(page, rid) {
 
   for (const farm of CONFIG.farms) {
     console.log(`🌱 Autoplant Mega-field dla farmy ${farm}`);
-    
-    const info = await sendFarmRequest(page, rid, 'innerinfos', farm, pos);
+    // 1) pobierz stan pola
+    const info = await sendFarmRequest(
+      page,
+      rid,
+      'innerinfos',
+      farm,
+      pos
+    );
     console.log('   ▶️ raw mega-innerinfos:', JSON.stringify(info, null, 2));
 
-   
+    // 2) sprawdź premium
     if (info.datablock?.[1]?.autoplantenabled) {
-      
+      // 3) wykonaj autoplant
       await sendFarmRequest(
-        page, rid,
+        page,
+        rid,
         'megafield_autoplant',
-        farm, pos,
+        farm,
+        pos,
         { id: seedId, pid: seedId }
       );
       console.log(`🌱 Autoplant wykonany na F${farm},P${pos}`);
