@@ -17,7 +17,7 @@ async function handleMegaFieldTour(page, rid) {
       pos,
       { set: setString, vid: CONFIG.megaFieldTour.vid }
     );
-    // tutaj czekamy
+
     await randomDelay(
       CONFIG.delays.farmPauseMin,
       CONFIG.delays.farmPauseMax
