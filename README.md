@@ -1,15 +1,23 @@
 #wfBot
 
-Bot do nauki
+Bot do gry Wolni Farmerzy
 
-wfBot to prosty bot napisany w Node.js, wykorzystujący Puppeteer do automatyzacji gry wolni farmerzy, 
+wfBot to prosty bot w Node.js, wykorzystujący Puppeteer do automatyzacji podstawowych czynności na farmach w grze Wolni Farmerzy.
 
 Funkcje
 
-Sianie, podlewanie, zbieranie. Bot działa na farmach 1-10 oraz el-drzewado
+Sianie
+
+Podlewanie
+
+Zbieranie plonów
+
+Obsługa farm o numerach 1–10
+
+Dodatkowa integracja z modułem „el-drzewado”
 
 Wymagania
 
-Node.js w wersji 14 lub wyższej
+Node.js (wersja 14 lub wyższa)
 
 npm (Node Package Manager)
