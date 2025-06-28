@@ -14,7 +14,7 @@ Zbieranie plonów
 
 Obsługa farm o numerach 1–10
 
-Dodatkowa integracja z modułem „el-drzewado”
+obsługa „el-drzewado”
 
 Wymagania
 
