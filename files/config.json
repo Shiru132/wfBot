@@ -1,7 +1,7 @@
 {
-  "login": "",
-  "password": "",
-  "serverId": "",
+  "login": "", //tu podajesz login
+  "password": "", tu podajesz hasło
+  "serverId": "", tu podajesz id serwera
   "farms": [1,2,3,4,5,6,7,8,9,10],
   "positionsPerFarm": 6,
   "defaultSeedId": "1",
@@ -50,3 +50,4 @@
   },
   "startDelay": 10000
 }
+
